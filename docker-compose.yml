@@ -1,0 +1,28 @@
+version: "3"
+services:
+  mqtt_broker:
+    container_name: mqtt_broker
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1883:1883"
+  mqtt_nodejs:
+    container_name: mqtt_nodejs
+    build:
+      context: ./nodejs
+    command: npm start mqtt_broker
+    depends_on:
+      - mqtt_broker
+  mqtt_python:
+    container_name: mqtt_python
+    build:
+      context: ./python
+    command: python -u app.py mqtt_broker
+    depends_on:
+      - mqtt_broker
+  mqtt_dotnetcore:
+    container_name: mqtt_dotnetcore
+    build:
+      context: ./dotnetcore
+    command: mqtt_broker
+    depends_on:
+      - mqtt_broker
