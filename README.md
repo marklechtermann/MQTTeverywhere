@@ -1,4 +1,4 @@
-# MQQT everywhere
+# MQTT everywhere
 
 MQTT rocks!  
 
