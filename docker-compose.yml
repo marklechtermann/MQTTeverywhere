@@ -26,3 +26,10 @@ services:
     command: mqtt_broker
     depends_on:
       - mqtt_broker
+  mqtt_java:
+    container_name: mqtt_java
+    build:
+      context: ./java
+    command: mqtt_broker
+    depends_on:
+      - mqtt_broker

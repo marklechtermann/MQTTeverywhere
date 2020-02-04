@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+repositories {
+    // Use jcenter for resolving dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+
+    maven {
+        url "https://repo.eclipse.org/content/repositories/paho-snapshots/"
+    }
+    
+}
+
+dependencies {
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:28.0-jre'
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
+}
+
+mainClassName = "mqttjava.App"
